@@ -1,0 +1,253 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+    font-size: 62.5%;
+
+    /* Cores */
+    --tt-heading: #0C3440;
+
+    --tt-label: #00453A;
+    --tt-input: #212529;
+    --tt-placeholder: rgba(73, 80, 87, 0.5);
+    --ot-input: #02799D;
+    --bd-input: (73, 80, 87, 0.3);
+    --bg-input: #DCE2E9;
+
+    --bg-button-hover: #045b76;
+    --bg-button: #02799D;
+    --tt-button: white;
+
+
+    --bg-error: #F03E3E;
+    --tt-errror: white;
+}
+
+body {
+    background-color: #040924;
+    font-family: "Roboto", sans-serif;
+}
+
+body, input, button {
+    font-size: 1.6rem;
+    line-height: 2rem;
+}
+
+
+
+.container {
+    display: grid;
+    place-content: center;
+
+    height: 100vh;
+    width: 100vw;
+}
+
+.card {
+    padding: 4.8rem 6.4rem 6.4rem;
+
+    background-color: white;
+
+    max-width: 42.8rem;
+    margin-inline: auto;
+
+
+    box-shadow: 0 .2rem .4rem rgba(0, 0, 0, 0.1);
+    border-radius: 0.6rem;
+}
+
+.title {
+    color: var(--tt-heading);
+    font-size: 3.2rem;
+    line-height: 4rem;
+}
+
+form {
+    width: 30.0rem;
+}
+
+form h1 {
+    margin-bottom: 3.2rem;
+}
+
+form label {
+    color: var(--tt-label);
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+
+    display: block;
+    margin-bottom: 0.8rem;
+}
+
+form input {
+    width: 100%;
+    border: 1px solid var(--bd-input);
+    border-radius: 0.4rem;
+
+    padding: 1.6rem;
+    background-color: var(--bg-input);
+}
+
+form input:focus {
+    outline: 2px solid var(--ot-input);
+}
+
+form input::placeholder {
+    color: var(--tt-placeholder);
+}
+
+
+.input-wrapper+.input-wrapper
+
+/* input que tem ANTERIOR a ele outro input */
+    {
+    margin-top: 1.6rem;
+}
+
+form button,
+.reload {
+    margin-top: 3.2rem;
+    padding: 1.6rem;
+    width: 100%;
+
+    border: none;
+    border-radius: 0.4rem;
+
+    background-color: var(--bg-button);
+    color: var(--tt-button);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: background .3s;
+}
+
+form button:hover,
+.reload:hover {
+    background-color: var(--bg-button-hover);
+}
+
+.reload {
+    margin-top: 1.0rem;
+}
+
+
+
+
+/* MODAL */
+.modal-wrapper.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-wrapper {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+
+    display: grid;
+    place-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal {
+    position: relative;
+}
+
+.modal button {
+    background: none;
+    border: none;
+
+    position: absolute;
+    top: 1.6rem;
+    right: 1.6rem;
+
+    cursor: pointer;
+
+    transition: transform .3s;
+}
+
+.modal button:hover {
+    transform: scale(1.3);
+}
+
+
+
+/* ALERT ERROR */
+.alert-error.open {
+    visibility: visible;
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+.alert-error {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    text-align: center;
+
+    color: var(--tt-errror);
+    background-color: var(--bg-error);
+
+    padding: 0.8rem 0;
+
+    font-weight: bold;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(-30px);
+    transition: transform .5s;
+}
+
+/* Ajuste Mobile */
+
+@media (max-width: 450px) {
+    body {
+        padding: 40px;
+        display: grid;
+        place-content: center;
+        grid-gap: 20px
+    }
+
+    
+
+    .card {
+        padding: 2.5rem 3.4rem 3.4rem;
+        width: 95%;
+        height: fit-content;
+
+    }
+
+    .title {
+        font-size: 2.0rem;
+    }
+
+    form {
+        width: 25.0rem;
+        padding: 0;
+    }
+
+    form h1 {
+        margin-bottom: 2.2rem;
+    }
+
+    main {
+        padding: 3.0rem;
+    }
+}
